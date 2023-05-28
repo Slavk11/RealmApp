@@ -10,10 +10,9 @@ import UIKit
 import RealmSwift
 
 final class TaskListViewController: UITableViewController {
-
+    
     private var taskLists: Results<TaskList>!
     private let storageManager = StorageManager.shared
-    private let dataManager = DataManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +24,6 @@ final class TaskListViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = addButton
         navigationItem.leftBarButtonItem = editButtonItem
-        
         taskLists = storageManager.realm.objects(TaskList.self)
         createTempData()
     }
@@ -82,7 +80,7 @@ final class TaskListViewController: UITableViewController {
         let taskList = taskLists[indexPath.row]
         tasksVC.taskList = taskList
     }
-
+    
     @IBAction func sortingList(_ sender: UISegmentedControl) {
         taskLists = sender.selectedSegmentIndex == 0
         ? taskLists.sorted(byKeyPath: "date")
@@ -96,7 +94,7 @@ final class TaskListViewController: UITableViewController {
     
     private func createTempData() {
         if !UserDefaults.standard.bool(forKey: "done") {
-            dataManager.createTempData { [unowned self] in
+            DataManager.shared.createTempData { [unowned self] in
                 UserDefaults.standard.set(true, forKey: "done")
                 tableView.reloadData()
             }
