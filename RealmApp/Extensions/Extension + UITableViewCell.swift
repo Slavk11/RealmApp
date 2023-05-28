@@ -10,7 +10,7 @@ import UIKit
 
 extension UITableViewCell {
     func configure(with taskList: TaskList) {
-        let currentTasks = taskList.tasks.filter("Is complete = false")
+        let currentTasks = taskList.tasks.filter("isComplete = false")
         var content = defaultContentConfiguration()
         
         content.text = taskList.title
@@ -29,3 +29,4 @@ extension UITableViewCell {
         contentConfiguration = content
     }
 }
+
