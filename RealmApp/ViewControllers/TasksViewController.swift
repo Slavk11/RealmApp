@@ -93,32 +93,4 @@ extension TasksViewController {
         }
     }
 }
-/* extension TasksViewController {
- override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
- 
- 
- let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] _, _, _ in
- storageManager.delete(taskList])
- tableView.deleteRows(at: [indexPath], with: .automatic)
- }
- 
- let editAction = UIContextualAction(style: .normal, title: "Edit") { [unowned self] _, _, isDone in
- showAlert(with: taskList) {
- tableView.reloadRows(at: [indexPath], with: .automatic)
- }
- isDone(true)
- }
- 
- let doneAction = UIContextualAction(style: .normal, title: "Done") { [unowned self] _, _, isDone in
- storageManager.done(taskList)
- tableView.reloadRows(at: [indexPath], with: .automatic)
- isDone(true)
- }
- 
- editAction.backgroundColor = .orange
- doneAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
- 
- return UISwipeActionsConfiguration(actions: [doneAction, editAction, deleteAction])
- }
- }
- */
+
